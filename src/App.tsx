@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import { Table } from "antd";
-import { ColumnProps } from "antd/es/table";
-import FormFC from "./components/FormFC";
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import { Table } from 'antd';
+import { ColumnProps } from 'antd/es/table';
+import FormFC from './components/FormFC';
 
 /**
  * 做一个todoList
@@ -36,35 +36,35 @@ const App: React.FC<iprops> = ({ title, onSubmit }) => {
     setlist([
       {
         status: true,
-        time: "2020-11-17",
-        text: "今天要看ts",
+        time: '2020-11-17',
+        text: '今天要看ts',
       },
       {
         status: false,
-        time: "2020-11-17",
-        text: "明天再看，今天休息",
+        time: '2020-11-17',
+        text: '明天再看，今天休息',
       },
       {
         status: true,
-        time: "2020-11-17",
-        text: "好吧好吧",
+        time: '2020-11-17',
+        text: '好吧好吧',
       },
     ]);
   }, []);
   const colums: ColumnProps<listProps>[] = [
     {
-      dataIndex: "status",
-      title: "是否完成",
-      key: "status",
-      render: (text, record, index) => (text ? "是" : "否"),
+      dataIndex: 'status',
+      title: '是否完成',
+      key: 'status',
+      render: (text, record, index) => (text ? '是' : '否'),
     },
     {
-      dataIndex: "time",
-      title: "完成时间",
+      dataIndex: 'time',
+      title: '完成时间',
     },
     {
-      dataIndex: "text",
-      title: "事项",
+      dataIndex: 'text',
+      title: '事项',
     },
   ];
   return (
