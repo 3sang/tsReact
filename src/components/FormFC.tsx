@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Input, Form } from "antd";
+import { Input, Form,Button } from "antd";
 import { ColumnProps } from "antd/es/table";
 
 interface formProps {
@@ -14,6 +14,7 @@ export default function FormFC(props: formProps): JSX.Element {
         name="basic"
         initialValues={{ text: "来啊" }}
         onFinish={(value) => console.log(value)}
+        onFinishFailed={value=>console.log(value)}
       >
         <Form.Item
           label="要做的事情"
@@ -22,6 +23,7 @@ export default function FormFC(props: formProps): JSX.Element {
         >
           <Input />
         </Form.Item>
+        <Button >提交</Button>
       </Form>
     </>
   );
