@@ -29,6 +29,4 @@ class Index extends Component<any, Istate> {
   }
 }
 
-ReactDOM.render(<React.StrictMode></React.StrictMode>, document.getElementById('root'));
-
 ReactDOM.render(<Index />, document.getElementById('root'));

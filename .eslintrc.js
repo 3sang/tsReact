@@ -1,192 +1,87 @@
 module.exports = {
-    root: true,
     parser: 'babel-eslint',
-    parserOptions: {
-        sourceType: 'module',
-        "allowImportExportEverywhere": true  //ignore eslint error: 'import' and 'export' may only appear at the top level
-    },
+    extends: ['airbnb', 'prettier', 'plugin:compat/recommended'],
     env: {
-        browser: true,
-        node: true,
-        es6: true,
+      browser: true,
+      node: true,
+      es6: true,
+      mocha: true,
+      jest: true,
+      jasmine: true,
     },
-    extends: 'eslint:recommended',
-    // required to lint *.vue files
-    plugins: [
-        'html',
-        'vue'
-    ],
-    // add your custom rules here
-    //it is base on https://github.com/vuejs/eslint-config-vue
-    'rules': {
-        'accessor-pairs': 2,
-        'arrow-spacing': [2, {
-            'before': true,
-            'after': true
-        }],
-        'block-spacing': [2, 'always'],
-        'brace-style': [2, '1tbs', {
-            'allowSingleLine': true
-        }],
-        'camelcase': [0, {
-            'properties': 'always'
-        }],
-        'comma-dangle': [2, 'never'],
-        'comma-spacing': [2, {
-            'before': false,
-            'after': true
-        }],
-        'comma-style': [2, 'last'],
-        'constructor-super': 2,
-        'curly': [2, 'multi-line'],
-        'dot-location': [2, 'property'],
-        'eol-last': 2,
-        'eqeqeq': [2, 'allow-null'],
-        'generator-star-spacing': [2, {
-            'before': true,
-            'after': true
-        }],
-        'handle-callback-err': [2, '^(err|error)$'],
-        'indent': [2, 2, {
-            'SwitchCase': 1
-        }],
-        'jsx-quotes': [2, 'prefer-single'],
-        'key-spacing': [2, {
-            'beforeColon': false,
-            'afterColon': true
-        }],
-        'keyword-spacing': [2, {
-            'before': true,
-            'after': true
-        }],
-        'new-cap': [2, {
-            'newIsCap': true,
-            'capIsNew': false
-        }],
-        'new-parens': 2,
-        'no-array-constructor': 2,
-        'no-caller': 2,
-        'no-console': 'off',
-        'no-class-assign': 2,
-        'no-cond-assign': 2,
-        'no-const-assign': 2,
-        'no-control-regex': 0,
-        'no-delete-var': 2,
-        'no-dupe-args': 2,
-        'no-dupe-class-members': 2,
-        'no-dupe-keys': 2,
-        'no-duplicate-case': 2,
-        'no-empty-character-class': 2,
-        'no-empty-pattern': 2,
-        'no-eval': 2,
-        'no-ex-assign': 2,
-        'no-extend-native': 2,
-        'no-extra-bind': 2,
-        'no-extra-boolean-cast': 2,
-        'no-extra-parens': [2, 'functions'],
-        'no-fallthrough': 2,
-        'no-floating-decimal': 2,
-        'no-func-assign': 2,
-        'no-implied-eval': 2,
-        'no-inner-declarations': [2, 'functions'],
-        'no-invalid-regexp': 2,
-        'no-irregular-whitespace': 2,
-        'no-iterator': 2,
-        'no-label-var': 2,
-        'no-labels': [2, {
-            'allowLoop': false,
-            'allowSwitch': false
-        }],
-        'no-lone-blocks': 2,
-        'no-mixed-spaces-and-tabs': 2,
-        'no-multi-spaces': 2,
-        'no-multi-str': 2,
-        'no-multiple-empty-lines': [2, {
-            'max': 1
-        }],
-        'no-native-reassign': 2,
-        'no-negated-in-lhs': 2,
-        'no-new-object': 2,
-        'no-new-require': 2,
-        'no-new-symbol': 2,
-        'no-new-wrappers': 2,
-        'no-obj-calls': 2,
-        'no-octal': 2,
-        'no-octal-escape': 2,
-        'no-path-concat': 2,
-        'no-proto': 2,
-        'no-redeclare': 2,
-        'no-regex-spaces': 2,
-        'no-return-assign': [2, 'except-parens'],
-        'no-self-assign': 2,
-        'no-self-compare': 2,
-        'no-sequences': 2,
-        'no-shadow-restricted-names': 2,
-        'no-spaced-func': 2,
-        'no-sparse-arrays': 2,
-        'no-this-before-super': 2,
-        'no-throw-literal': 2,
-        'no-trailing-spaces': 2,
-        'no-undef': 2,
-        'no-undef-init': 2,
-        'no-unexpected-multiline': 2,
-        'no-unmodified-loop-condition': 2,
-        'no-unneeded-ternary': [2, {
-            'defaultAssignment': false
-        }],
-        'no-unreachable': 2,
-        'no-unsafe-finally': 2,
-        'no-unused-vars': [2, {
-            'vars': 'all',
-            'args': 'none'
-        }],
-        'no-useless-call': 2,
-        'no-useless-computed-key': 2,
-        'no-useless-constructor': 2,
-        'no-useless-escape': 0,
-        'no-whitespace-before-property': 2,
-        'no-with': 2,
-        'one-var': [2, {
-            'initialized': 'never'
-        }],
-        'operator-linebreak': [2, 'after', {
-            'overrides': {
-                '?': 'before',
-                ':': 'before'
-            }
-        }],
-        'padded-blocks': [2, 'never'],
-        'quotes': [2, 'single', {
-            'avoidEscape': true,
-            'allowTemplateLiterals': true
-        }],
-        'semi': [2, 'never'],
-        'semi-spacing': [2, {
-            'before': false,
-            'after': true
-        }],
-        'space-before-blocks': [2, 'always'],
-        'space-before-function-paren': [2, 'never'],
-        'space-in-parens': [2, 'never'],
-        'space-infix-ops': 2,
-        'space-unary-ops': [2, {
-            'words': true,
-            'nonwords': false
-        }],
-        'spaced-comment': [2, 'always', {
-            'markers': ['global', 'globals', 'eslint', 'eslint-disable', '*package', '!', ',']
-        }],
-        'template-curly-spacing': [2, 'never'],
-        'use-isnan': 2,
-        'valid-typeof': 2,
-        'wrap-iife': [2, 'any'],
-        'yield-star-spacing': [2, 'both'],
-        'yoda': [2, 'never'],
-        'prefer-const': 2,
-        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-        'object-curly-spacing': [2, 'always', {
-            objectsInObjects: false
-        }],
-        'array-bracket-spacing': [2, 'never']
-    }
-}
+    globals: {
+      APP_TYPE: true,
+      page: true,
+    },
+    rules: {
+      'react/destructuring-assignment': 0,
+      'react/jsx-tag-spacing': 0,
+      'react/jsx-first-prop-new-line': 0,
+      'react/jsx-indent-props': 0,
+      'react/jsx-closing-bracket-location': 0,
+      'react/react-in-jsx-scope': 0,
+      'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
+      'react/jsx-wrap-multilines': 0,
+      'react/prefer-stateless-function': 0,
+      'react/prop-types': 0,
+      'react/forbid-prop-types': 0,
+      'react/jsx-one-expression-per-line': 0,
+      'import/no-unresolved': [2, { ignore: ['^@/', '^umi/', 'dva'] }],
+      'import/no-extraneous-dependencies': [
+        2,
+        {
+          optionalDependencies: true,
+          devDependencies: ['**/tests/**.js', '/mock/**/**.js', '**/**.test.js'],
+        },
+      ],
+      'jsx-a11y/no-noninteractive-element-interactions': 0,
+      'jsx-a11y/click-events-have-key-events': 0,
+      'jsx-a11y/no-static-element-interactions': 0,
+      'jsx-a11y/anchor-is-valid': 0,
+      'linebreak-style': 0, //强制使用一致的换行风格
+      'no-nested-ternary': 0, // 禁用嵌套的三元表达式
+      'prefer-const': 0, // 要求使用 const 声明那些声明后不再被修改的变量
+      'no-unused-expressions': 0, // 禁止出现未使用过的表达式
+      'no-return-assign': 0, // 禁止在 return 语句中使用赋值语句
+      'no-underscore-dangle': 0, // 禁止标识符中有悬空下划线
+      'no-shadow': 0, // 禁止变量声明与外层作用域的变量同名
+      'no-param-reassign':0, // 禁止对 function 的参数进行重新赋值
+      'no-unused-vars': 1, //[2, {"vars": "all", "args": "after-used"}],//不能有声明后未被使用的变量或参数
+      'compat/compat': 0,
+      'import/order': 1, // import顺序有误
+      'no-undef': 1, // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到
+      'react/self-closing-comp': 0, // 	html元素内容不能为空
+      'no-plusplus': 0, // 禁用一元操作符 ++ 和 --
+      'array-callback-return': 0, // 强制数组方法的回调函数中有 return 语句
+      'consistent-return': 0, // 要求 return 语句要么总是指定返回的值，要么不指定
+      'radix': 0, // 强制在parseInt()使用基数参数
+      'react/jsx-indent': 1,
+      'no-else-return': 1, // 禁止 if 语句中 return 语句之后有 else 块
+      'prefer-destructuring': 0, // 优先使用数组和对象解构
+      'no-lonely-if': 1, // 禁止 if 作为唯一的语句出现在 else 语句中
+      'prefer-template': 1, // 要求使用模板字面量而非字符串连接
+      'one-var': 1, // 强制函数中的变量要么一起声明要么分开声明
+      'react/no-unused-state': 1, // 未使用的state
+      'react/no-access-state-in-setstate': 0, // 需要在setState回调里使用旧state值
+      'object-shorthand': 0, // 要求或禁止对象字面量中方法和属性使用简写语法
+      'react/no-find-dom-node': 0, // 不允许使用findDOMNode方法
+      'react/no-did-update-set-state': 0, // 不允许在componentDidUpdate内setState
+      'react/jsx-boolean-value': 1, // 如果属性值为 true, 可以直接省略
+      'no-multi-assign': 1, // 禁止连续赋值
+      'no-useless-constructor': 1, // 禁用不必要的构造函数
+      'lines-between-class-members': 1, // 要求或禁止类成员之间出现空行
+      'react/sort-comp': 0, // React中函数的先后顺序
+      'react/no-string-refs': 0,
+      'react/jsx-curly-brace-presence': 1, // 不必要的大括号
+      'import/prefer-default-export': 1, // export const要有default
+      'spaced-comment': 1, // 强制在注释中 // 或 /* 使用一致的空格
+      'no-useless-escape': 0, // 禁用不必要的转义字符
+      'no-restricted-syntax': 1, // 禁用特定的语法
+      'guard-for-in': 1, // 要求 for-in 循环中有一个 if 语句
+  
+    },
+    settings: {
+      polyfills: ['fetch', 'promises', 'url', 'object-assign'],
+    },
+  };
+  
