@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import FormFC from './components/FormFC';
+import ModalCal from './components/ModalCal';
 
 /**
  * 做一个todoList
@@ -32,6 +33,7 @@ interface listProps {
  */
 const App: React.FC<iprops> = ({ title, onSubmit }) => {
   const [list, setlist] = useState<listProps[]>();
+  const [visible, setvisible] = useState(false);
   useEffect(() => {
     setlist([
       {
@@ -67,11 +69,20 @@ const App: React.FC<iprops> = ({ title, onSubmit }) => {
       title: '事项',
     },
   ];
+
+  const modalProps = {
+    visible,
+    onOk: () => setvisible(false),
+    onCancel: () => setvisible(false),
+  };
   return (
     <>
       <h1>{title}</h1>
       <Table columns={colums} rowKey="time" dataSource={list} />
       <FormFC onSubmit={onSubmit} />
+
+      <Button onClick={() => setvisible(true)}>弹出窗口</Button>
+      <ModalCal {...modalProps} />
     </>
   );
 };

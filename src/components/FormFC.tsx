@@ -15,10 +15,6 @@ export default function FormFC(props: iformProps): JSX.Element {
     console.log('onFinish', values);
   };
 
-  const onFinish1 = <T extends {}>(values: T): void => {
-    console.log('onFinish1', values);
-  };
-
   /** 点击提交按钮的submit，尝试不要把submit写在Form表单里的用法 */
   const onSubmit = (): void => {
     form.submit();
@@ -26,17 +22,12 @@ export default function FormFC(props: iformProps): JSX.Element {
 
   return (
     <>
-      <Form form={form} name="formFC2" initialValues={{ formTest: '初始数据' }} onFinish={onFinish1}>
-        <Form.Item name="formTest" label="第二个表单" rules={[{ required: true }]}>
+      <Form form={form} name="formFC1" initialValues={{ text: '初始数据' }} onFinish={onFinish} style={{ display: 'flex' }}>
+        <Form.Item name="text" label="要做的事" rules={[{ required: true }]} style={{ flex: 1, marginRight: '10px' }}>
           <Input />
         </Form.Item>
+        <Button onClick={onSubmit}>提交</Button>
       </Form>
-      <Form form={form} name="formFC1" initialValues={{ text: '初始数据' }} onFinish={onFinish}>
-        <Form.Item name="text" label="要做的事" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-      </Form>
-      <Button onClick={onSubmit}>提交</Button>
     </>
   );
 }
