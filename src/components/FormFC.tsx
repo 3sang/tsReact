@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Input, Form, Button } from 'antd';
-import { ColumnProps } from 'antd/es/table';
 
 interface iformProps {
   /** 回调函数，传回form表单填写的text数据 */
@@ -8,29 +7,38 @@ interface iformProps {
 }
 
 export default function FormFC(props: iformProps): JSX.Element {
+  /** 实例化Form */
   const [form] = Form.useForm();
 
+  /** 表单里的onFinish */
   const onFinish = <T extends {}>(values: T): void => {
-    console.log(values);
+    console.log('onFinish', values);
   };
 
-  /**
-   * 非箭头函数使用泛型
-   * function test<T>(value: T): T{
-   *   return value
-   * }
-   */
-  const onReset = () => {
-    form.resetFields();
+  const onFinish1 = <T extends {}>(values: T): void => {
+    console.log('onFinish1', values);
   };
 
-  const onFill = () => {
-    form.setFieldsValue({
-      note: 'Hello world!',
-      gender: 'male',
-    });
+  /** 点击提交按钮的submit，尝试不要把submit写在Form表单里的用法 */
+  const onSubmit = (): void => {
+    form.submit();
   };
-  return <></>;
+
+  return (
+    <>
+      <Form form={form} name="formFC2" initialValues={{ formTest: '初始数据' }} onFinish={onFinish1}>
+        <Form.Item name="formTest" label="第二个表单" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>
+      <Form form={form} name="formFC1" initialValues={{ text: '初始数据' }} onFinish={onFinish}>
+        <Form.Item name="text" label="要做的事" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>
+      <Button onClick={onSubmit}>提交</Button>
+    </>
+  );
 }
 
 // Form 没有用useForm方法的

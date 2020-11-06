@@ -23,9 +23,9 @@ interface listProps {
 /**
  * 方式1
  */
-function App1(props: iprops): JSX.Element {
-  return <></>;
-}
+// function App1(props: iprops): JSX.Element {
+//   return <></>;
+// }
 
 /**
  * 方式2
