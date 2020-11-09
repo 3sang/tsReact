@@ -16,19 +16,26 @@ export default function ModalCal<ModalProps>(props: ModalProps) {
         form={form}
         onValuesChange={(changedFields: object, allFields: object) => {
           let sum = 0;
-          _.map(allFields, (d) => {
-            if (!_.isEmpty(d)) {
-              sum += Math.round(d * 100) / 100;
+          let p1 = 0,
+            p2 = 0,
+            flag = false;
+          _.map(_.values(allFields), (d, i) => {
+            if (typeof d === 'string') {
+              if (i % 2 === 0) {
+                // 奇数
+                p1 = d;
+                flag = false;
+              } else {
+                // 偶数
+                p2 = d;
+                flag = true;
+              }
+              if (flag) {
+                sum += ((Math.round(p1 * 1000) / 1000) * Math.round(p2 * 1000)) / 1000;
+              }
             }
           });
           setresult(sum.toFixed(2));
-          // console.log(sum);
-          // d.match('/^(\d+)(.\d{0,2})?$/')
-          // _.reduce(
-          //   _.map(allFields, (d: string) => parseFloat(d).toFixed(2)),
-          //   (sum: number, n: number) => sum + n,
-          //   0
-          // );
         }}
       >
         <Row gutter={16}>
