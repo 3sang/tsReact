@@ -26,7 +26,7 @@ export default function FormFC(props: iformProps): JSX.Element {
         <Form.Item name="text" label="要做的事" rules={[{ required: true }]} style={{ flex: 1, marginRight: '10px' }}>
           <Input />
         </Form.Item>
-        <Button onClick={onSubmit}>提交</Button>
+        <Button type='primary' onClick={onSubmit}>提交</Button>
       </Form>
     </>
   );

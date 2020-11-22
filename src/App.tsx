@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './App.less';
 import { Table, Button } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import FormFC from './components/FormFC';
